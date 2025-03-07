@@ -883,13 +883,13 @@
         <span>🌸</span>
         <span id="flowerCount">0</span>
     </div>
-    
+
     <div class="mobile-menu" id="mobileMenu">
         <span style="color: white; font-size: 1.5rem;">≡</span>
     </div>
     
     <div class="container" id="container">
-        <h1 class="title" id="title">Chúc Mừng Ngày 8/3</h1>
+        <h1 class="title" id="title">Chúc Cậu 8/3 Vui Vẻ</h1>
         <p class="subtitle" id="subtitle">Ngày Quốc tế Phụ nữ</p>
         
         <div class="envelope-container">
@@ -899,7 +899,7 @@
                 <div class="envelope-front">
                     <div class="envelope-seal" id="envelopeSeal">💌</div>
                     <h2>8/3</h2>
-                    <div class="tap-text">Nhấp vào để mở</div>
+                    <div class="tap-text">Cậu bấm đây để mở nhé 😳</div>
                 </div>
                 <div class="envelope-inside"></div>
                 <div class="envelope-left-wall"></div>
@@ -925,22 +925,21 @@
             
             <div class="letter-scrollable">
                 <div class="letter-content">
-                    <h2 class="letter-greeting">Chào em!</h2>
+                    <h2 class="letter-greeting">Chào cậu!</h2>
                     
                     <div class="letter-text">
-                        <p>Nhân Ngày Quốc tế Phụ nữ 8/3, anh muốn dành những lời chúc tốt đẹp nhất đến em.</p>
+                        <p>Nhân Ngày Quốc tế Phụ nữ 8/3, tớ chúc những điều tốt đẹp nhất sẽ đến với cậu.</p>
                         
-                        <p>Cảm ơn em vì tất cả những điều tuyệt vời em mang đến cho cuộc sống này. Sự dịu dàng, thông minh và mạnh mẽ của em là nguồn cảm hứng không ngừng đối với anh.</p>
+                        <p>Chúc cậu luôn xinh đẹp, thành công trên con đường cậu đã chọn.</p>
                         
-                        <p>Chúc em luôn xinh đẹp, tự tin và thành công trên con đường em đã chọn. Mỗi ngày trôi qua, anh càng trân trọng những phẩm chất tuyệt vời của em, từ sự thấu hiểu, kiên nhẫn đến tình yêu vô điều kiện em dành cho mọi người xung quanh.</p>
+                        <p>Chúc cậu mau ăn chóng lớn và ngoan ngoãn nhee luôn vui vẻ và nở nụ cười trên môi, hong phại khóc hay tiêu cực về điều rì nhó.</p>
                         
-                        <p>Ngày 8/3 không chỉ là ngày để tôn vinh phụ nữ mà còn là cơ hội để anh bày tỏ lòng biết ơn và tình cảm sâu sắc dành cho em. Anh hứa sẽ luôn bên cạnh, ủng hộ và yêu thương em mỗi ngày, không chỉ hôm nay.</p>
-                        
-                        <p>Chúc em một ngày 8/3 tràn ngập niềm vui, hạnh phúc và những điều tuyệt vời nhất!</p>
+                        <p>Chúc cậu một ngày 8/3 tràn ngập niềm vui, hạnh phúc và những điều tuyệt vời nhất!</p>
+
                     </div>
-                    
-                    <div class="letter-signature">Yêu em!</div>
                     <div class="letter-date">Ngày 8 tháng 3, 2025</div>
+
+                    <div class="letter-signature">DunDuy</div>
                 </div>
             </div>
             
@@ -948,8 +947,7 @@
         </div>
         
         <div class="message" id="message">
-            <p>Phụ nữ là nguồn cảm hứng tuyệt vời, là động lực và là niềm tự hào của chúng ta. Ngày 8/3 là dịp để chúng ta bày tỏ lòng biết ơn và tôn vinh những người phụ nữ tuyệt vời trong cuộc sống.</p>
-            <p>Chúc tất cả các chị em phụ nữ luôn xinh đẹp, hạnh phúc và thành công!</p>
+            <p>Cậu mở thư ra đọc nhé 😳</p>
             <div class="signature">Chúc mừng ngày 8/3!</div>
         </div>
         
@@ -958,124 +956,163 @@
         <div class="gallery" id="gallery">
             <div class="gallery-item">🌸</div>
             <div class="gallery-item">💖</div>
-            <div class="gallery-item">🎁</div>
-            <div class="gallery-item">✨</div>
+            <div class="gallery-item">🍓</div>
+            <div class="gallery-item">💐</div>
         </div>
     </div>
-    
+
     <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Các biến khởi tạo
-    let flowerCount = 0;
-    const MAX_ELEMENTS = 150; // Giới hạn phần tử cùng lúc
-    let activeElements = [];
-    
+    // Các biến cần thiết
+    const envelope = document.getElementById('envelope');
+    const letter = document.getElementById('letter');
+    const closeLetterButton = document.getElementById('closeLetter');
+
+
     // Hiển thị nội dung chính
     setTimeout(() => {
         document.getElementById('container').classList.add('show');
         document.getElementById('title').classList.add('visible');
         document.getElementById('subtitle').classList.add('visible');
         document.getElementById('message').classList.add('visible');
+
         document.getElementById('gallery').classList.add('visible');
     }, 500);
-    
-    // Xử lý mở phong bì
-    const envelope = document.getElementById('envelope');
-    const letter = document.getElementById('letter');
+
+    // Mở phong bì
     envelope.addEventListener('click', function() {
-        this.classList.add('open');
+        if (!this.classList.contains('open')) {
+            this.classList.add('open');
+            setTimeout(() => {
+                letter.classList.add('pulled');
+                letter.classList.add('open');
+                createFlowers(100); // Tạo hiệu ứng hoa rơi khi mở thư
+                closeLetterButton.style.display = 'inline-block'; // Hiển thị nút đóng thư
+
+            }, 800);
+        }
+    });
+
+    // Đóng thư
+    closeLetterButton.addEventListener('click', function() {
+        // Thu nhỏ thư
+        letter.classList.remove('open');
         setTimeout(() => {
-            letter.classList.add('pulled');
-            letter.classList.add('open');
-            createFlowers(100);
+            letter.classList.remove('pulled');
+            envelope.classList.remove('open'); // Đóng phong bì
+            closeLetterButton.style.display = 'none'; // Ẩn nút đóng thư
+
         }, 800);
     });
-    
-    // Tạo hoa rơi
+
+    // Đếm số lượng hoa
+    let flowerCount = 0;
+
+    // Tạo hiệu ứng hoa rơi
     function createFlowers(count) {
         for (let i = 0; i < count; i++) {
-            if (activeElements.length >= MAX_ELEMENTS) break;
-            
             setTimeout(() => {
                 const flower = document.createElement('div');
                 flower.className = 'flower';
-                
                 const flowers = ['🌸', '🌺', '🌷', '🌹', '🌻', '💐', '🌼'];
-                flower.innerHTML = flowers[Math.floor(Math.random() * flowers.length)];
-                
-                const posX = Math.random() * window.innerWidth;
-                flower.style.left = posX + 'px';
+                const randomFlower = flowers[Math.floor(Math.random() * flowers.length)];
+                flower.innerHTML = randomFlower;
+                const startPosX = Math.random() * window.innerWidth;
+                flower.style.left = startPosX + 'px';
                 flower.style.top = '-20px';
-                
                 const rotation = (Math.random() * 360) - 180;
                 flower.style.setProperty('--rotation', rotation + 'deg');
-                
                 const duration = 5 + Math.random() * 10;
                 flower.style.animationDuration = duration + 's';
-                
                 document.body.appendChild(flower);
-                activeElements.push(flower);
-                
                 flowerCount++;
                 document.getElementById('flowerCount').textContent = flowerCount;
-                
                 setTimeout(() => {
-                    flower.remove();
-                    activeElements = activeElements.filter(el => el !== flower);
+                    document.body.removeChild(flower);
                 }, duration * 1000);
-            }, i * 50);
+            }, i * 300);
         }
     }
-    
-    // Tạo trái tim bay
+
+    // Tạo hiệu ứng trái tim bay
     function createHearts(count) {
         for (let i = 0; i < count; i++) {
-            if (activeElements.length >= MAX_ELEMENTS) break;
-            
             setTimeout(() => {
                 const heart = document.createElement('div');
                 heart.className = 'heart';
                 heart.innerHTML = '❤️';
-                
                 const posX = 100 + Math.random() * (window.innerWidth - 200);
                 const posY = 100 + Math.random() * (window.innerHeight - 200);
                 heart.style.left = posX + 'px';
                 heart.style.top = posY + 'px';
-                
                 const size = 20 + Math.random() * 20;
                 heart.style.fontSize = size + 'px';
-                
                 const duration = 2 + Math.random() * 4;
                 heart.style.animationDuration = duration + 's';
-                
                 document.body.appendChild(heart);
-                activeElements.push(heart);
-                
                 setTimeout(() => {
                     heart.style.opacity = 1;
                 }, 10);
-                
                 setTimeout(() => {
                     heart.style.opacity = 0;
                     setTimeout(() => {
-                        heart.remove();
-                        activeElements = activeElements.filter(el => el !== heart);
+                        document.body.removeChild(heart);
                     }, 1000);
                 }, 5000 + Math.random() * 5000);
-            }, i * 50);
+            }, i * 200);
         }
     }
-    
-    // Tạo hiệu ứng tự động
+
+    // Tạo hiệu ứng rơi hoa ban đầu
+    createFlowers(15);
+
+    // Hiệu ứng hoa theo con trỏ
+    document.addEventListener('mousemove', function(e) {
+        if (Math.random() > 0.95) {
+            const flower = document.createElement('div');
+            flower.className = 'flower-trail';
+            const flowers = ['🌸', '🌺', '🌷', '🌹', '🌻', '💐', '🌼'];
+            const randomFlower = flowers[Math.floor(Math.random() * flowers.length)];
+            flower.innerHTML = randomFlower;
+            flower.style.left = (e.clientX - 10) + 'px';
+            flower.style.top = (e.clientY - 10) + 'px';
+            document.body.appendChild(flower);
+            setTimeout(() => {
+                document.body.removeChild(flower);
+            }, 1000);
+        }
+    });
+
+    // Tương thích mobile - thêm xử lý touch
+    document.addEventListener('touchmove', function(e) {
+        if (Math.random() > 0.7) {
+            const touch = e.touches[0];
+            const flower = document.createElement('div');
+            flower.className = 'flower-trail';
+            const flowers = ['🌸', '🌺', '🌷', '🌹', '🌻', '💐', '🌼'];
+            const randomFlower = flowers[Math.floor(Math.random() * flowers.length)];
+            flower.innerHTML = randomFlower;
+            flower.style.left = (touch.clientX - 10) + 'px';
+            flower.style.top = (touch.clientY - 10) + 'px';
+            document.body.appendChild(flower);
+            setTimeout(() => {
+                document.body.removeChild(flower);
+            }, 1000);
+        }
+    });
+
+    // Thêm hiệu ứng wiggle cho envelope seal
+    document.getElementById('envelopeSeal').classList.add('flower-wiggle');
+
+    // Đảm bảo letter có thể cuộn được
+    document.getElementById('letter').addEventListener('wheel', function(e) {
+        e.stopPropagation();
+    });
+
+    // Tạo hiệu ứng hoa đều đặn
     setInterval(() => {
         createFlowers(3);
-        createHearts(5);
     }, 5000);
-    
-    // Dọn dẹp định kỳ
-    setInterval(() => {
-        activeElements = activeElements.filter(el => document.body.contains(el));
-    }, 10000);
 });
     </script>
 </body>
