@@ -964,184 +964,119 @@
     </div>
     
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Hiển thị nội dung chính
+document.addEventListener('DOMContentLoaded', function() {
+    // Các biến khởi tạo
+    let flowerCount = 0;
+    const MAX_ELEMENTS = 150; // Giới hạn phần tử cùng lúc
+    let activeElements = [];
+    
+    // Hiển thị nội dung chính
+    setTimeout(() => {
+        document.getElementById('container').classList.add('show');
+        document.getElementById('title').classList.add('visible');
+        document.getElementById('subtitle').classList.add('visible');
+        document.getElementById('message').classList.add('visible');
+        document.getElementById('gallery').classList.add('visible');
+    }, 500);
+    
+    // Xử lý mở phong bì
+    const envelope = document.getElementById('envelope');
+    const letter = document.getElementById('letter');
+    envelope.addEventListener('click', function() {
+        this.classList.add('open');
+        setTimeout(() => {
+            letter.classList.add('pulled');
+            letter.classList.add('open');
+            createFlowers(100);
+        }, 800);
+    });
+    
+    // Tạo hoa rơi
+    function createFlowers(count) {
+        for (let i = 0; i < count; i++) {
+            if (activeElements.length >= MAX_ELEMENTS) break;
+            
             setTimeout(() => {
-                document.getElementById('container').classList.add('show');
-                document.getElementById('title').classList.add('visible');
-                document.getElementById('subtitle').classList.add('visible');
-                document.getElementById('message').classList.add('visible');
-                document.getElementById('generateHearts').classList.add('visible');
-                document.getElementById('gallery').classList.add('visible');
-            }, 500);
-            
-            // Đếm số lượng hoa
-            let flowerCount = 0;
-            
-            // Mở phong bì
-            const envelope = document.getElementById('envelope');
-            const letter = document.getElementById('letter');
-            const envelopeSeal = document.getElementById('envelopeSeal');
-            
-            envelope.addEventListener('click', function() {
-                this.classList.add('open');
+                const flower = document.createElement('div');
+                flower.className = 'flower';
+                
+                const flowers = ['🌸', '🌺', '🌷', '🌹', '🌻', '💐', '🌼'];
+                flower.innerHTML = flowers[Math.floor(Math.random() * flowers.length)];
+                
+                const posX = Math.random() * window.innerWidth;
+                flower.style.left = posX + 'px';
+                flower.style.top = '-20px';
+                
+                const rotation = (Math.random() * 360) - 180;
+                flower.style.setProperty('--rotation', rotation + 'deg');
+                
+                const duration = 5 + Math.random() * 10;
+                flower.style.animationDuration = duration + 's';
+                
+                document.body.appendChild(flower);
+                activeElements.push(flower);
+                
+                flowerCount++;
+                document.getElementById('flowerCount').textContent = flowerCount;
                 
                 setTimeout(() => {
-                    letter.classList.add('pulled');
-                    letter.classList.add('open');
-                    
-                    // Tạo hiệu ứng các bông hoa rơi khi mở thư
-                    createFlowers(100);
-                }, 800);
-            });
+                    flower.remove();
+                    activeElements = activeElements.filter(el => el !== flower);
+                }, duration * 1000);
+            }, i * 50);
+        }
+    }
+    
+    // Tạo trái tim bay
+    function createHearts(count) {
+        for (let i = 0; i < count; i++) {
+            if (activeElements.length >= MAX_ELEMENTS) break;
             
-            // Nút tạo hiệu ứng
-            const generateHeartsButton = document.getElementById('generateHearts');
-            generateHeartsButton.addEventListener('click', function() {
-                createHearts(300);
-                createFlowers(30);
-            });
-            
-            // Tạo hiệu ứng hoa rơi
-            function createFlowers(count) {
-                for (let i = 0; i < count; i++) {
+            setTimeout(() => {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.innerHTML = '❤️';
+                
+                const posX = 100 + Math.random() * (window.innerWidth - 200);
+                const posY = 100 + Math.random() * (window.innerHeight - 200);
+                heart.style.left = posX + 'px';
+                heart.style.top = posY + 'px';
+                
+                const size = 20 + Math.random() * 20;
+                heart.style.fontSize = size + 'px';
+                
+                const duration = 2 + Math.random() * 4;
+                heart.style.animationDuration = duration + 's';
+                
+                document.body.appendChild(heart);
+                activeElements.push(heart);
+                
+                setTimeout(() => {
+                    heart.style.opacity = 1;
+                }, 10);
+                
+                setTimeout(() => {
+                    heart.style.opacity = 0;
                     setTimeout(() => {
-                        const flower = document.createElement('div');
-                        flower.className = 'flower';
-                        
-                        // Các loại emoji hoa ngẫu nhiên
-                        const flowers = ['🌸', '🌺', '🌷', '🌹', '🌻', '💐', '🌼'];
-                        const randomFlower = flowers[Math.floor(Math.random() * flowers.length)];
-                        flower.innerHTML = randomFlower;
-                        
-                        // Vị trí ngẫu nhiên trên màn hình
-                        const startPosX = Math.random() * window.innerWidth;
-                        flower.style.left = startPosX + 'px';
-                        flower.style.top = '-20px';
-                        
-                        // Góc quay ngẫu nhiên
-                        const rotation = (Math.random() * 360) - 180;
-                        flower.style.setProperty('--rotation', rotation + 'deg');
-                        
-                        // Thời gian rơi ngẫu nhiên
-                        const duration = 5 + Math.random() * 10;
-                        flower.style.animationDuration = duration + 's';
-                        
-                        document.body.appendChild(flower);
-                        
-                        // Cập nhật bộ đếm
-                        flowerCount++;
-                        document.getElementById('flowerCount').textContent = flowerCount;
-                        
-                        // Xóa hoa sau khi rơi xong
-                        setTimeout(() => {
-                            document.body.removeChild(flower);
-                        }, duration * 1000);
-                        
-                    }, i * 300);
-                }
-            }
-            
-            // Tạo hiệu ứng trái tim bay
-            function createHearts(count) {
-                for (let i = 0; i < count; i++) {
-                    setTimeout(() => {
-                        const heart = document.createElement('div');
-                        heart.className = 'heart';
-                        heart.innerHTML = '❤️';
-                        
-                        // Vị trí ngẫu nhiên
-                        const posX = 100 + Math.random() * (window.innerWidth - 200);
-                        const posY = 100 + Math.random() * (window.innerHeight - 200);
-                        
-                        heart.style.left = posX + 'px';
-                        heart.style.top = posY + 'px';
-                        
-                        // Kích thước ngẫu nhiên
-                        const size = 20 + Math.random() * 20;
-                        heart.style.fontSize = size + 'px';
-                        
-                        // Thời gian hiệu ứng ngẫu nhiên
-                        const duration = 2 + Math.random() * 4;
-                        heart.style.animationDuration = duration + 's';
-                        
-                        document.body.appendChild(heart);
-                        
-                        setTimeout(() => {
-                            heart.style.opacity = 1;
-                        }, 10);
-                        
-                        // Xóa trái tim sau 5-10 giây
-                        setTimeout(() => {
-                            heart.style.opacity = 0;
-                            setTimeout(() => {
-                                document.body.removeChild(heart);
-                            }, 1000);
-                        }, 5000 + Math.random() * 5000);
-                        
-                    }, i * 200);
-                }
-            }
-            
-            // Tạo hiệu ứng rơi hoa ban đầu
-            createFlowers(15);
-            
-            // Hiệu ứng hoa theo con trỏ
-            document.addEventListener('mousemove', function(e) {
-                if (Math.random() > 0.95) {
-                    const flower = document.createElement('div');
-                    flower.className = 'flower-trail';
-                    
-                    const flowers = ['🌸', '🌺', '🌷', '🌹', '🌻', '💐', '🌼'];
-                    const randomFlower = flowers[Math.floor(Math.random() * flowers.length)];
-                    flower.innerHTML = randomFlower;
-                    
-                    flower.style.left = (e.clientX - 10) + 'px';
-                    flower.style.top = (e.clientY - 10) + 'px';
-                    
-                    document.body.appendChild(flower);
-                    
-                    setTimeout(() => {
-                        document.body.removeChild(flower);
+                        heart.remove();
+                        activeElements = activeElements.filter(el => el !== heart);
                     }, 1000);
-                }
-            });
-            
-            // Tương thích mobile - thêm xử lý touch
-            document.addEventListener('touchmove', function(e) {
-                if (Math.random() > 0.7) {
-                    const touch = e.touches[0];
-                    const flower = document.createElement('div');
-                    flower.className = 'flower-trail';
-                    
-                    const flowers = ['🌸', '🌺', '🌷', '🌹', '🌻', '💐', '🌼'];
-                    const randomFlower = flowers[Math.floor(Math.random() * flowers.length)];
-                    flower.innerHTML = randomFlower;
-                    
-                    flower.style.left = (touch.clientX - 10) + 'px';
-                    flower.style.top = (touch.clientY - 10) + 'px';
-                    
-                    document.body.appendChild(flower);
-                    
-                    setTimeout(() => {
-                        document.body.removeChild(flower);
-                    }, 1000);
-                }
-            });
-            
-            // Thêm hiệu ứng wiggle cho envelope seal
-            envelopeSeal.classList.add('flower-wiggle');
-            
-            // Đảm bảo letter có thể cuộn được
-            document.getElementById('letter').addEventListener('wheel', function(e) {
-                e.stopPropagation();
-            });
-            
-            // Tạo hiệu ứng hoa đều đặn
-            setInterval(() => {
-                createFlowers(3);
-            }, 5000);
-        });
+                }, 5000 + Math.random() * 5000);
+            }, i * 50);
+        }
+    }
+    
+    // Tạo hiệu ứng tự động
+    setInterval(() => {
+        createFlowers(3);
+        createHearts(5);
+    }, 5000);
+    
+    // Dọn dẹp định kỳ
+    setInterval(() => {
+        activeElements = activeElements.filter(el => document.body.contains(el));
+    }, 10000);
+});
     </script>
 </body>
 </html>
