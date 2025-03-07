@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc Mừng Ngày 8/3</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(-45deg, #fce7f3, #fbcfe8, #f9a8d4, #f472b6, #ec4899, #db2777, #ffbae0, #ffeeff, #d8b4fe, #c4b5fd);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            perspective: 1000px;
+        }
+        
+        @keyframes gradientBG {
+            0% {
+                background-position: 0% 50%;
+            }
+            25% {
+                background-position: 50% 100%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            75% {
+                background-position: 50% 0%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        .envelope-container {
+            position: relative;
+            width: 320px;
+            height: 220px;
+            margin: 50px auto;
+            perspective: 1500px;
+            z-index: 10;
+            transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .envelope {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transform-style: preserve-3d;
+            transition: all 1.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            transform: rotateX(10deg);
+        }
+        
+        .envelope:hover {
+            transform: rotateX(15deg) translateY(-10px);
+        }
+        
+        .envelope-front {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(160deg, #db2777, #be185d);
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            backface-visibility: hidden;
+            z-index: 2;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transform-style: preserve-3d;
+        }
+        
+        .envelope-front::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+            border-radius: 15px;
+            opacity: 0.3;
+        }
+        
+        /* Envelope flap */
+        .envelope-flap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            background: linear-gradient(160deg, #e11d48, #be185d);
+            clip-path: polygon(0 0, 100% 0, 50% 100%);
+            transform-origin: top;
+            z-index: 3;
+            transition: transform 1.2s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+            border-radius: 15px 15px 0 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .envelope.open .envelope-flap {
+            transform: rotateX(180deg);
+        }
+        
+        /* Backside of flap (visible when flap is open) */
+        .envelope-flap-back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            background: linear-gradient(160deg, #e11d48, #9d174d);
+            clip-path: polygon(0 0, 100% 0, 50% 100%);
+            transform-origin: top;
+            z-index: 1;
+            backface-visibility: hidden;
+            transform: rotateX(180deg);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 15px 15px 0 0;
+        }
+        
+        .envelope.open .envelope-flap-back {
+            opacity: 1;
+        }
+        
+        /* Envelope inside pattern */
+        .envelope-inside {
+            position: absolute;
+            width: 90%;
+            height: 85%;
+            top: 10%;
+            left: 5%;
+            background: linear-gradient(135deg, #fdf2f8, #fce7f3);
+            border-radius: 0 0 15px 15px;
+            z-index: 1;
+            transform: translateZ(-1px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .envelope.open .envelope-inside {
+            opacity: 1;
+        }
+        
+        /* Envelope side walls */
+        .envelope-left-wall, .envelope-right-wall, .envelope-bottom-wall {
+            position: absolute;
+            background: linear-gradient(135deg, #be185d, #9d174d);
+            z-index: 2;
+        }
+        
+        .envelope-left-wall {
+            height: 90%;
+            width: 10px;
+            top: 10%;
+            left: 0;
+            transform: rotateY(-45deg) translateZ(5px);
+        }
+        
+        .envelope-right-wall {
+            height: 90%;
+            width: 10px;
+            top: 10%;
+            right: 0;
+            transform: rotateY(45deg) translateZ(5px);
+        }
+        
+        .envelope-bottom-wall {
+            height: 10px;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            transform: rotateX(45deg) translateZ(5px);
+            border-radius: 0 0 15px 15px;
+        }
+        
+        /* Envelope seal */
+        .envelope-seal {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #fda4af, #f43f5e);
+            border-radius: 50%;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            z-index: 4;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: transform 0.5s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+        }
+        
+        .envelope.open .envelope-seal {
+            transform: translate(-50%, -50%) scale(0.8) rotate(10deg);
+        }
+        
+        .envelope-front h2 {
+            color: white;
+            font-size: 1.8rem;
+            text-align: center;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            margin-top: 2.5rem;
+            letter-spacing: 1px;
+        }
+        
+        .envelope-front .tap-text {
+            position: absolute;
+            bottom: 20px;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.8);
+            animation: pulse 1.5s infinite;
+        }
+        
+        .envelope-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #be185d, #831843);
+            border-radius: 15px;
+            transform: rotateY(180deg);
+            backface-visibility: hidden;
+            z-index: 1;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .letter {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.2);
+            opacity: 0;
+            width: 90vw;
+            max-width: 800px;
+            min-height: 400px;
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.5s ease;
+            z-index: 0;
+            transform-style: preserve-3d;
+            transform-origin: top center;
+            overflow-y: auto; /* Enable vertical scrolling */
+            max-height: 80vh; /* Limit height to enable scrolling */
+        }
+        
+        .letter.pulled {
+            animation: pullLetter 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+        
+        .letter.open {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+            z-index: 20;
+        }
+        
+        @keyframes pullLetter {
+            0% {
+                transform: translate(-50%, 100%) scale(0.2) rotateX(30deg);
+                opacity: 0;
+            }
+            30% {
+                opacity: 1;
+            }
+            70% {
+                transform: translate(-50%, -30%) scale(0.8) rotateX(10deg);
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1) rotateX(0deg);
+                opacity: 1;
+            }
+        }
+        
+        .envelope.open {
+            transform: translateY(-40px) rotateX(20deg) scale(0.9);
+            pointer-events: none;
+        }
+        
+        .container {
+            max-width: 800px;
+            padding: 2rem;
+            text-align: center;
+            z-index: 1;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        
+        .container.show {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 1s ease;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #be185d;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+            background: linear-gradient(to right, #db2777, #be185d, #9d174d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: #9d174d;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease 0.2s;
+        }
+        
+        .message {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .message::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23fda4af' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.5;
+            z-index: -1;
+        }
+        
+        .message p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #4b5563;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .signature {
+            font-style: italic;
+            font-size: 1.4rem;
+            color: #be185d;
+            margin-top: 1rem;
+            text-align: right;
+        }
+        
+        .flower {
+            position: absolute;
+            font-size: 20px;
+            z-index: 0;
+            pointer-events: none;
+            animation: fall linear forwards;
+            opacity: 0.9;
+        }
+        
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            color: #e11d48;
+            opacity: 0;
+            pointer-events: none;
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        .button {
+            background: linear-gradient(to right, #db2777, #be185d);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease 0.6s;
+        }
+        
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            max-width: 600px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease 0.8s;
+        }
+        
+        .gallery-item {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, #fda4af, #f43f5e);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            transition: all 0.3s ease;
+            animation: fadeIn 0.5s ease backwards;
+            position: relative;
+        }
+        
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .gallery-item:hover::before {
+            opacity: 1;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Paper texture and folded effect for letter */
+        .paper-texture {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.05' numOctaves='2' /%3E%3CfeDisplacementMap in='SourceGraphic' scale='5' /%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.1'/%3E%3C/svg%3E"), linear-gradient(to right, rgba(255,255,255,0.9), rgba(255,255,255,1), rgba(255,255,255,0.85));
+            opacity: 0.5;
+            z-index: 1;
+            pointer-events: none;
+            border-radius: 15px;
+        }
+        
+        /* Folded paper effect */
+        .fold-line {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.03);
+            z-index: 2;
+        }
+        
+        .fold-horizontal {
+            width: 100%;
+            height: 1px;
+            left: 0;
+        }
+        
+        .fold-vertical {
+            width: 1px;
+            height: 100%;
+            top: 0;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fall {
+            0% {
+                transform: translateY(-20vh) rotate(0deg);
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(120vh) rotate(var(--rotation));
+                opacity: 0.5;
+            }
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-20px) translateX(10px);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(0) translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 0.6; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.1); }
+            100% { opacity: 0.6; transform: scale(1); }
+        }
+        
+        /* Decorative corners for letter */
+        .letter::before, .letter::after,
+        .message::before, .message::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border: 2px solid #fda4af;
+            z-index: 0;
+        }
+        
+        .letter::before {
+            top: 10px;
+            left: 10px;
+            border-right: none;
+            border-bottom: none;
+            border-radius: 10px 0 0 0;
+        }
+        
+        .letter::after {
+            top: 10px;
+            right: 10px;
+            border-left: none;
+            border-bottom: none;
+            border-radius: 0 10px 0 0;
+        }
+        
+        .letter-corner-bl, .letter-corner-br {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border: 2px solid #fda4af;
+            z-index: 0;
+        }
+        
+        .letter-corner-bl {
+            bottom: 10px;
+            left: 10px;
+            border-right: none;
+            border-top: none;
+            border-radius: 0 0 0 10px;
+        }
+        
+        .letter-corner-br {
+            bottom: 10px;
+            right: 10px;
+            border-left: none;
+            border-top: none;
+            border-radius: 0 0 10px 0;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .envelope-container {
+                width: 280px;
+                height: 190px;
+                margin: 30px auto;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .message {
+                padding: 1.5rem;
+            }
+            
+            .gallery-item {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .envelope-seal {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
+        }
+        
+        /* Letter curved shadow for 3D effect */
+        .letter-shadow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0) 70%);
+            border-radius: 15px;
+            z-index: -1;
+            transform: translateY(5px);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .letter.open .letter-shadow {
+            opacity: 1;
+        }
+        
+        /* Additional flower trail effect */
+        .flower-trail {
+            pointer-events: none;
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            font-size: 20px;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            animation: flowerFadeOut 1s forwards;
+        }
+        
+        /* Flower counter display */
+        .flower-counter {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px 15px;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            font-size: 16px;
+            color: #be185d;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        /* Additional animations */
+        .flower-wiggle {
+            animation: wiggle 2s ease-in-out infinite;
+        }
+        
+        @keyframes wiggle {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(-5deg); }
+    100% { transform: rotate(0deg); }
+}
+
+@keyframes flowerFadeOut {
+    0% { transform: scale(0); opacity: 0; }
+    50% { transform: scale(1.2); opacity: 0.9; }
+    100% { transform: scale(1); opacity: 0; }
+}
+
+/* Thêm hiệu ứng cong cho trang thư */
+.letter-content {
+    position: relative;
+    z-index: 2;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.letter-page-curl {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, transparent 40%, rgba(0,0,0,0.05) 50%, rgba(0,0,0,0.1) 100%);
+    border-radius: 0 0 15px 0;
+    z-index: 3;
+    transform: rotate(-3deg);
+    transition: all 0.3s ease;
+}
+
+.letter:hover .letter-page-curl {
+    transform: rotate(-10deg) translate(5px, -5px);
+}
+
+/* Thêm khả năng cuộn trang */
+.letter-scrollable {
+    max-height: 70vh;
+    overflow-y: auto;
+    padding-right: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: #fda4af #f9fafb;
+}
+
+.letter-scrollable::-webkit-scrollbar {
+    width: 6px;
+}
+
+.letter-scrollable::-webkit-scrollbar-track {
+    background: #f9fafb;
+    border-radius: 10px;
+}
+
+.letter-scrollable::-webkit-scrollbar-thumb {
+    background-color: #fda4af;
+    border-radius: 10px;
+}
+
+/* Bộ đếm hoa */
+.flower-counter {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 30px;
+    padding: 5px 15px;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(253, 164, 175, 0.3);
+    z-index: 1000;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+}
+
+/* Thêm nút menu cho mobile */
+.mobile-menu {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #db2777, #be185d);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    cursor: pointer;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .mobile-menu {
+        display: flex;
+    }
+    
+    .letter {
+        width: 95vw;
+        padding: 1.5rem;
+    }
+    
+    .letter-scrollable {
+        max-height: 60vh;
+    }
+    
+    .flower-counter {
+        top: 10px;
+        right: 10px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Thêm nội dung cho thư */
+.letter-greeting {
+    font-size: 1.8rem;
+    color: #be185d;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    position: relative;
+    font-weight: bold;
+    font-family: 'Dancing Script', cursive;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+}
+
+.letter-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #4b5563;
+    text-align: justify;
+    position: relative;
+    z-index: 3;
+}
+
+.letter-signature {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.6rem;
+    color: #be185d;
+    text-align: right;
+    margin-top: 1.5rem;
+}
+
+.letter-date {
+    font-style: italic;
+    text-align: right;
+    color: #6b7280;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+}
+
+/* Thêm hiệu ứng đổ bóng trang thư */
+.letter-3d-shadow {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 0;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    z-index: -1;
+    transform: translateZ(-10px);
+    filter: blur(5px);
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+.letter.open .letter-3d-shadow {
+    opacity: 1;
+}
+</style>
+</head>
+<body>
+    <div class="flower-counter" id="flowerCounter">
+        <span>🌸</span>
+        <span id="flowerCount">0</span>
+    </div>
+    
+    <div class="mobile-menu" id="mobileMenu">
+        <span style="color: white; font-size: 1.5rem;">≡</span>
+    </div>
+    
+    <div class="container" id="container">
+        <h1 class="title" id="title">Chúc Mừng Ngày 8/3</h1>
+        <p class="subtitle" id="subtitle">Ngày Quốc tế Phụ nữ</p>
+        
+        <div class="envelope-container">
+            <div class="envelope" id="envelope">
+                <div class="envelope-flap"></div>
+                <div class="envelope-flap-back"></div>
+                <div class="envelope-front">
+                    <div class="envelope-seal" id="envelopeSeal">💌</div>
+                    <h2>8/3</h2>
+                    <div class="tap-text">Nhấp vào để mở</div>
+                </div>
+                <div class="envelope-inside"></div>
+                <div class="envelope-left-wall"></div>
+                <div class="envelope-right-wall"></div>
+                <div class="envelope-bottom-wall"></div>
+                <div class="envelope-back"></div>
+            </div>
+        </div>
+        
+        <div class="letter" id="letter">
+            <div class="paper-texture"></div>
+            <div class="letter-3d-shadow"></div>
+            
+            <!-- Đường gấp trang giấy -->
+            <div class="fold-line fold-horizontal" style="top: 33%;"></div>
+            <div class="fold-line fold-horizontal" style="top: 66%;"></div>
+            <div class="fold-line fold-vertical" style="left: 50%;"></div>
+            
+            <!-- Góc trang -->
+            <div class="letter-corner-bl"></div>
+            <div class="letter-corner-br"></div>
+            <div class="letter-page-curl"></div>
+            
+            <div class="letter-scrollable">
+                <div class="letter-content">
+                    <h2 class="letter-greeting">Chào em!</h2>
+                    
+                    <div class="letter-text">
+                        <p>Nhân Ngày Quốc tế Phụ nữ 8/3, anh muốn dành những lời chúc tốt đẹp nhất đến em.</p>
+                        
+                        <p>Cảm ơn em vì tất cả những điều tuyệt vời em mang đến cho cuộc sống này. Sự dịu dàng, thông minh và mạnh mẽ của em là nguồn cảm hứng không ngừng đối với anh.</p>
+                        
+                        <p>Chúc em luôn xinh đẹp, tự tin và thành công trên con đường em đã chọn. Mỗi ngày trôi qua, anh càng trân trọng những phẩm chất tuyệt vời của em, từ sự thấu hiểu, kiên nhẫn đến tình yêu vô điều kiện em dành cho mọi người xung quanh.</p>
+                        
+                        <p>Ngày 8/3 không chỉ là ngày để tôn vinh phụ nữ mà còn là cơ hội để anh bày tỏ lòng biết ơn và tình cảm sâu sắc dành cho em. Anh hứa sẽ luôn bên cạnh, ủng hộ và yêu thương em mỗi ngày, không chỉ hôm nay.</p>
+                        
+                        <p>Chúc em một ngày 8/3 tràn ngập niềm vui, hạnh phúc và những điều tuyệt vời nhất!</p>
+                    </div>
+                    
+                    <div class="letter-signature">Yêu em!</div>
+                    <div class="letter-date">Ngày 8 tháng 3, 2025</div>
+                </div>
+            </div>
+            
+            <div class="letter-shadow"></div>
+        </div>
+        
+        <div class="message" id="message">
+            <p>Phụ nữ là nguồn cảm hứng tuyệt vời, là động lực và là niềm tự hào của chúng ta. Ngày 8/3 là dịp để chúng ta bày tỏ lòng biết ơn và tôn vinh những người phụ nữ tuyệt vời trong cuộc sống.</p>
+            <p>Chúc tất cả các chị em phụ nữ luôn xinh đẹp, hạnh phúc và thành công!</p>
+            <div class="signature">Chúc mừng ngày 8/3!</div>
+        </div>
+        
+        <button class="button" id="generateHearts">Tạo hiệu ứng</button>
+        
+        <div class="gallery" id="gallery">
+            <div class="gallery-item">🌸</div>
+            <div class="gallery-item">💖</div>
+            <div class="gallery-item">🎁</div>
+            <div class="gallery-item">✨</div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hiển thị nội dung chính
+            setTimeout(() => {
+                document.getElementById('container').classList.add('show');
+                document.getElementById('title').classList.add('visible');
+                document.getElementById('subtitle').classList.add('visible');
+                document.getElementById('message').classList.add('visible');
+                document.getElementById('generateHearts').classList.add('visible');
+                document.getElementById('gallery').classList.add('visible');
+            }, 500);
+            
+            // Đếm số lượng hoa
+            let flowerCount = 0;
+            
+            // Mở phong bì
+            const envelope = document.getElementById('envelope');
+            const letter = document.getElementById('letter');
+            const envelopeSeal = document.getElementById('envelopeSeal');
+            
+            envelope.addEventListener('click', function() {
+                this.classList.add('open');
+                
+                setTimeout(() => {
+                    letter.classList.add('pulled');
+                    letter.classList.add('open');
+                    
+                    // Tạo hiệu ứng các bông hoa rơi khi mở thư
+                    createFlowers(100);
+                }, 800);
+            });
+            
+            // Nút tạo hiệu ứng
+            const generateHeartsButton = document.getElementById('generateHearts');
+            generateHeartsButton.addEventListener('click', function() {
+                createHearts(300);
+                createFlowers(30);
+            });
+            
+            // Tạo hiệu ứng hoa rơi
+            function createFlowers(count) {
+                for (let i = 0; i < count; i++) {
+                    setTimeout(() => {
+                        const flower = document.createElement('div');
+                        flower.className = 'flower';
+                        
+                        // Các loại emoji hoa ngẫu nhiên
+                        const flowers = ['🌸', '🌺', '🌷', '🌹', '🌻', '💐', '🌼'];
+                        const randomFlower = flowers[Math.floor(Math.random() * flowers.length)];
+                        flower.innerHTML = randomFlower;
+                        
+                        // Vị trí ngẫu nhiên trên màn hình
+                        const startPosX = Math.random() * window.innerWidth;
+                        flower.style.left = startPosX + 'px';
+                        flower.style.top = '-20px';
+                        
+                        // Góc quay ngẫu nhiên
+                        const rotation = (Math.random() * 360) - 180;
+                        flower.style.setProperty('--rotation', rotation + 'deg');
+                        
+                        // Thời gian rơi ngẫu nhiên
+                        const duration = 5 + Math.random() * 10;
+                        flower.style.animationDuration = duration + 's';
+                        
+                        document.body.appendChild(flower);
+                        
+                        // Cập nhật bộ đếm
+                        flowerCount++;
+                        document.getElementById('flowerCount').textContent = flowerCount;
+                        
+                        // Xóa hoa sau khi rơi xong
+                        setTimeout(() => {
+                            document.body.removeChild(flower);
+                        }, duration * 1000);
+                        
+                    }, i * 300);
+                }
+            }
+            
+            // Tạo hiệu ứng trái tim bay
+            function createHearts(count) {
+                for (let i = 0; i < count; i++) {
+                    setTimeout(() => {
+                        const heart = document.createElement('div');
+                        heart.className = 'heart';
+                        heart.innerHTML = '❤️';
+                        
+                        // Vị trí ngẫu nhiên
+                        const posX = 100 + Math.random() * (window.innerWidth - 200);
+                        const posY = 100 + Math.random() * (window.innerHeight - 200);
+                        
+                        heart.style.left = posX + 'px';
+                        heart.style.top = posY + 'px';
+                        
+                        // Kích thước ngẫu nhiên
+                        const size = 20 + Math.random() * 20;
+                        heart.style.fontSize = size + 'px';
+                        
+                        // Thời gian hiệu ứng ngẫu nhiên
+                        const duration = 2 + Math.random() * 4;
+                        heart.style.animationDuration = duration + 's';
+                        
+                        document.body.appendChild(heart);
+                        
+                        setTimeout(() => {
+                            heart.style.opacity = 1;
+                        }, 10);
+                        
+                        // Xóa trái tim sau 5-10 giây
+                        setTimeout(() => {
+                            heart.style.opacity = 0;
+                            setTimeout(() => {
+                                document.body.removeChild(heart);
+                            }, 1000);
+                        }, 5000 + Math.random() * 5000);
+                        
+                    }, i * 200);
+                }
+            }
+            
+            // Tạo hiệu ứng rơi hoa ban đầu
+            createFlowers(15);
+            
+            // Hiệu ứng hoa theo con trỏ
+            document.addEventListener('mousemove', function(e) {
+                if (Math.random() > 0.95) {
+                    const flower = document.createElement('div');
+                    flower.className = 'flower-trail';
+                    
+                    const flowers = ['🌸', '🌺', '🌷', '🌹', '🌻', '💐', '🌼'];
+                    const randomFlower = flowers[Math.floor(Math.random() * flowers.length)];
+                    flower.innerHTML = randomFlower;
+                    
+                    flower.style.left = (e.clientX - 10) + 'px';
+                    flower.style.top = (e.clientY - 10) + 'px';
+                    
+                    document.body.appendChild(flower);
+                    
+                    setTimeout(() => {
+                        document.body.removeChild(flower);
+                    }, 1000);
+                }
+            });
+            
+            // Tương thích mobile - thêm xử lý touch
+            document.addEventListener('touchmove', function(e) {
+                if (Math.random() > 0.7) {
+                    const touch = e.touches[0];
+                    const flower = document.createElement('div');
+                    flower.className = 'flower-trail';
+                    
+                    const flowers = ['🌸', '🌺', '🌷', '🌹', '🌻', '💐', '🌼'];
+                    const randomFlower = flowers[Math.floor(Math.random() * flowers.length)];
+                    flower.innerHTML = randomFlower;
+                    
+                    flower.style.left = (touch.clientX - 10) + 'px';
+                    flower.style.top = (touch.clientY - 10) + 'px';
+                    
+                    document.body.appendChild(flower);
+                    
+                    setTimeout(() => {
+                        document.body.removeChild(flower);
+                    }, 1000);
+                }
+            });
+            
+            // Thêm hiệu ứng wiggle cho envelope seal
+            envelopeSeal.classList.add('flower-wiggle');
+            
+            // Đảm bảo letter có thể cuộn được
+            document.getElementById('letter').addEventListener('wheel', function(e) {
+                e.stopPropagation();
+            });
+            
+            // Tạo hiệu ứng hoa đều đặn
+            setInterval(() => {
+                createFlowers(3);
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
